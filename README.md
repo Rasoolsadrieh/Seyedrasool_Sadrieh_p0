@@ -2,7 +2,7 @@
 
 ## Description
 
-\Bank for all users from all side of the World!
+Bank for all users from all side of the World!
 ## User Story
 
 - [ ] As a new bankUser, I should be able to register myself on the system, so that I can begin using the RossBank project application.
