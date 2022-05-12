@@ -2,7 +2,7 @@
 
 ## Description
 
-\Bank for all users from all side of the World!
+Bank for all users from all side of the World!
 ## User Story
 
 - [ ] As a new bankUser, I should be able to register myself on the system, so that I can begin using the RossBank project application.
@@ -37,6 +37,3 @@ printf "url=\nuser=\npassword=\n" > src/main/resources/db.properties
 - Next make sure to run the RossBank-script.sql script file in the src/main/resources directory to obtain all the appropriate tables. Note: make sure you're working within the appropriate schema for you database.
 - Finally, boot up the java application and use the MainDriver to access the menus that allow for requests to be made to the databse.
 
-## Project Structure
-
-![Current RossBank Project](images/RossBank_project-overview.png)# Seyedrasool_Sadrieh_p0
