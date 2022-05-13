@@ -20,10 +20,10 @@ public class UserDao implements Crudable<BankUser>{
 
         try(Connection conn = ConnectionFactory.getInstance().getConnection();) {
 
-            // NEVER EVER EVER concatenate or directly use these strings inside the sql statement
-            // String sql = "insert into users value (" + newTrainer.getFname() + "," + newTrainer.getLname();
+            // NEVER EVER EVER EVER EVER concatenate or directly use these strings inside of the sql statement
+            // String sql = "insert into trainer value (" + newTrainer.getFname() + "," + newTrainer.getLname();
 
-            // The commented out sql String is using default for auto-generating the ID if you used serial
+            // The commented out sql String is using default for auto-generating the ID ifyou used serial
             // String sql = "insert into trainer values (default, ?, ?, ?, ?, ?)"; // incomplete sql statement, with default if not specifiying columns
             String sql = "insert into Rossbank.user (fname, lname, email, password, dob) values (?, ?, ?, ?, ?)";
 
@@ -57,7 +57,7 @@ public class UserDao implements Crudable<BankUser>{
 
         List<BankUser> bankUsers = new LinkedList<>();
 
-        // TODO: we're trying something here and passing an argument ???
+        // TODO: we're trying something here and passing an argumetn ???
         try (Connection conn = ConnectionFactory.getInstance().getConnection();) { // try with resources, because Connection extends the interface Auto-Closeable
 
             String sql = "select * from trainer";
@@ -70,7 +70,7 @@ public class UserDao implements Crudable<BankUser>{
             while (rs.next()) { // the last line of the file is null
                 BankUser bankUser = new BankUser();
 
-                bankUser.setFname(rs.getString("fname")); // this column label MUST MATCH THE DB
+                bankUser.setFname(rs.getString("fname")); // this column lable MUST MATCH THE DB
                 bankUser.setLname(rs.getString("lname"));
                 bankUser.setDob(rs.getString("dob"));
                 bankUser.setPassword(rs.getString("password"));
@@ -94,7 +94,7 @@ public class UserDao implements Crudable<BankUser>{
 
         try(Connection conn = ConnectionFactory.getInstance().getConnection();){
 
-            String sql = "select * from users where id = ?";
+            String sql = "select * from trainer where id = ?";
 
             PreparedStatement ps = conn.prepareStatement(sql);
 
@@ -108,7 +108,7 @@ public class UserDao implements Crudable<BankUser>{
 
             BankUser bankUser = new BankUser();
 
-            bankUser.setFname(rs.getString("fname")); // this column label MUST MATCH THE DB
+            bankUser.setFname(rs.getString("fname")); // this column lable MUST MATCH THE DB
             bankUser.setLname(rs.getString("lname"));
             bankUser.setDob(rs.getString("dob"));
             bankUser.setPassword(rs.getString("password"));
@@ -133,10 +133,10 @@ public class UserDao implements Crudable<BankUser>{
         return false;
     }
 
-    public BankUser authenticateUser(String email, String password){
+    public BankUser authenticateTrainer(String email, String password){
 
         try (Connection conn = ConnectionFactory.getInstance().getConnection()){
-            String sql = "select * from users where email = ? and password = ?";
+            String sql = "select * from trainer where email = ? and password = ?";
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, email);
             ps.setString(2, password);

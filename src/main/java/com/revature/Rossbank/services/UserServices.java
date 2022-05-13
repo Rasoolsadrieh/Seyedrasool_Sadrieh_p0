@@ -95,7 +95,7 @@ public class UserServices implements Serviceable<BankUser>{
             throw new InvalidRequestException("Either username or password is an invalid entry. Please try logging in again");
         }
 
-        BankUser authenticatedBankUser = UserDao.authenticateUser(email, password);
+        BankUser authenticatedBankUser = UserDao.authenticateTrainer(email, password);
 
         if (authenticatedBankUser == null){
             throw new AuthenticationException("Unauthenticated user, information provided was not consistent with our database.");

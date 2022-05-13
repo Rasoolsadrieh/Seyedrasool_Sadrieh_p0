@@ -12,7 +12,7 @@
 
 -- Added in the Trainer table to match the system
 
-create table bankUser (
+create table Rossbank (
 	id serial primary key,
 	fname varchar(20) not null,
 	lname varchar(20) not null,
@@ -29,13 +29,13 @@ create table bankUser (
 
 ------------------------------------
 -- Uncomment and Only execute if you need to dropp
--- drop table bankUser;
+--drop table Rrossbank ;
 ------------------------------------
 
 -- CREATING NEW ENTRIES
 -- Insert some bankUsers
 
-insert into bankUser
+insert into Rossbank
 values
 (default, 'Charles', 'Jester', 'cj@mail.com', 'password', '01-01-0001'),
 (default, 'Maxwell', 'House', 'mh@mail.com', 'password', '02-20-1900'),
@@ -48,12 +48,12 @@ values
 
 
 -- single insert into RossBank
-insert into RossBank 
+insert into Rossbank
 values
 (default, 'rattata', '12', '2', 1, 'Scratch', 'Tackle');
 
 -- multi-insert 
-insert into RossBank 
+insert into Rossbank
 values
 (default, 'pidgey', '10', '1', 1, 'Tackle', 'Scratch'),
 (default, 'charmander', '25', '5', 2, 'Scratch', 'Fire Breath'),
@@ -65,33 +65,10 @@ values
 
 -----------------------------------------
 ---------------CR(ead)UD-----------------
-select * from RossBank p ;
+select * from Rossbank ;
 
 
--- joins
 
-select RossBank.RossBank_name
-from RossBank 
-join abilities ON RossBank.ability1 = abilities.ability_name;
-
-
--- Same exact results as above, but we used the alias instead (RossBank p and ablities a)
--- If something is aliased, you have to use that
-select p.RossBank_name, p.ability1, p.atk, a.atk_multiplier, a.dmg_type 
-from RossBank p
-join abilities a ON p.ability1 = a.ability_name;
-
-
--- views
-
-create view RossBank_abilities as
-select p.RossBank_name, p.ability1, p.atk, a.atk_multiplier, a.dmg_type 
-from RossBank p
-join abilities a ON p.ability1 = a.ability_name;
-
-select * from RossBank_abilities;
-
-select * from bankUser;
 
 -------------Read End--------------------
 
