@@ -26,7 +26,7 @@ public class UserServiceTestSuite {
     public void test_validateInput_givenValidUser_returnTrue(){
 
         // Arrange
-        BankUser bankUser = new BankUser("valid", "valid", "valid","valid","valid");
+        BankUser bankUser = new BankUser(1,"valid", "valid", "valid","valid","valid");
 
         // Act
         boolean actualResult = sut.validateInput(bankUser);
@@ -39,7 +39,7 @@ public class UserServiceTestSuite {
     @Test
     public void test_create_givenValidUser_returnsUser(){
         // Arrange
-        BankUser bankUser = new BankUser("pie", "pie", "pie","pie","pie");
+        BankUser bankUser = new BankUser(1,"pie", "pie", "pie","pie","pie");
         // THe below code ensures that the services can continue execution and get expected results from the dao without any issues
         when(mockUserDao.create(bankUser)).thenReturn(bankUser);
 
@@ -47,6 +47,7 @@ public class UserServiceTestSuite {
         BankUser actualBankUser = sut.create(bankUser);
 
         // Assert
+        Assertions.assertEquals("pie", actualBankUser.getId());
         Assertions.assertEquals("pie", actualBankUser.getFname());
         Assertions.assertEquals("pie", actualBankUser.getLname());
         Assertions.assertEquals("pie", actualBankUser.getPassword());

@@ -24,6 +24,7 @@ public class LinkedListSerializerUser extends StdSerializer<LinkedList> {
         for (int i = 0; i < linkedList.size(); i++) {
             BankUser bankUser = (BankUser) linkedList.get(i);
             jsonGenerator.writeStartObject();
+
             jsonGenerator.writeStringField("fname", bankUser.getFname());
             jsonGenerator.writeStringField("lname", bankUser.getLname());
             jsonGenerator.writeStringField("email", bankUser.getEmail());

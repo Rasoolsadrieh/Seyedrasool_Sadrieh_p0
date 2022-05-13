@@ -7,6 +7,7 @@ public class BankUser {
 
     // Encapsulated these variables/attributes to the class or instance thereof
     // Another pillar of OOP Encapsulation
+    private int id;
     private String fname;
     private String lname;
     private String email;
@@ -25,8 +26,9 @@ public class BankUser {
     // So now, "this" is refering to the instance and we are setting this.fname to equal the passed arugment that was assign fname
 
     // Overloading constructors another subset of polymorphism
-    public BankUser(String fname, String lname, String email, String password, String dob) {
+    public BankUser(int id,String fname, String lname, String email, String password, String dob) {
         super(); // just always there, by default of EVERY CLASS is Object
+        this.id = id;
         this.fname = fname;
         this.lname = lname;
         this.email = email;
@@ -45,18 +47,22 @@ public class BankUser {
 
     }
 
+
     // Getters & Setters
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getFname() {
         return fname;
     }
 
-    // public is letting every instance of this class use the .setFname anywhere.
-    // void - this means it will return nothing to me
-    // setFname() - to reassign fname attribute
-    // method takes in paramerters of String that will be assigned fname
-    //this - is the keyword to indicate it's refering to the particular instance of that class
-    // this.fname is refering to the attribute in that class
-    // we are setting this objects fname attribute to equal the fname that has been provided as an argument
+
     public void setFname(String fname) {
         this.fname = fname;
     }
@@ -108,11 +114,12 @@ public class BankUser {
         // Is another class for Strings that allows them to be mutated
         StringBuilder mutableString = new StringBuilder();
         mutableString
+                .append(id).append(",")
                 .append(fname).append(",")
                 .append(lname).append(",")
                 .append(email).append(",")
                 .append(password).append(",")
-                .append(dob);
+                .append(dob).append(",");
 
         // Without changing the mutableString class from StringBuilder we wont' have an appropriate return type
         return mutableString.toString(); // We need the toString to return it to it's appropriate type
@@ -121,6 +128,8 @@ public class BankUser {
     @Override // What this is?? Annotation - basically metadata
     public String toString() {
         return "user {" +
+                "id='" + id + '\'' +
+                "fname='" + fname + '\'' +
                 "fname='" + fname + '\'' +
                 ", lname='" + lname + '\'' +
                 ", email='" + email + '\'' +

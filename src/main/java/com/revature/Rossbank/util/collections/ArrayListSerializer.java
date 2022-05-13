@@ -23,6 +23,7 @@ public class ArrayListSerializer extends StdSerializer<ArrayList> {
         for(int i = 0; i < arrayList.size; i++) {
             BankUser bankUser = (BankUser) arrayList.get(i);
             jsonGenerator.writeStartObject();
+
             jsonGenerator.writeStringField("fname", bankUser.getFname());
             jsonGenerator.writeStringField("lname", bankUser.getLname());
             jsonGenerator.writeStringField("email", bankUser.getEmail());

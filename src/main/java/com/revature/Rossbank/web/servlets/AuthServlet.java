@@ -36,7 +36,7 @@ public class AuthServlet extends HttpServlet {
             BankUser authBankUser = userServices.authenticateUser(loginCreds.getEmail(), loginCreds.getPassword());
 
             HttpSession httpSession = req.getSession(true);
-            httpSession.setAttribute("authTrainer", authBankUser);
+            httpSession.setAttribute("authUser", authBankUser);
 
             resp.getWriter().write("You have successfully logged in!");
         } catch (AuthenticationException | InvalidRequestException e){

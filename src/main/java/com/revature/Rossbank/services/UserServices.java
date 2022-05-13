@@ -21,13 +21,13 @@ public class UserServices implements Serviceable<BankUser>{
 
     @Override
     public List<BankUser> readAll(){
-        logger.info("Begin reading Trainers in our file database.");
+        logger.info("Begin reading Users in our file database.");
 
 
         try {
             // TODO: What UserDao intellisense telling me?
             List<BankUser> bankUsers = UserDao.findAll();
-            logger.info("All trainers have been found here are the results: \n");
+            logger.info("All Users have been found here are the results:");
             return bankUsers;
 
         } catch (IOException | NullPointerException e) {
@@ -72,9 +72,9 @@ public class UserServices implements Serviceable<BankUser>{
         BankUser persistedBankUser = UserDao.create(newBankUser);
 
         if(persistedBankUser == null){
-            throw new ResourcePersistanceException("Trainer was not persisted to the database upon registration");
+            throw new ResourcePersistanceException("User was not persisted to the database upon registration");
         }
-        logger.info("Trainer has been persisted: " + newBankUser);
+        logger.info("User has been persisted: " + newBankUser);
         return persistedBankUser;
     }
 
@@ -82,6 +82,7 @@ public class UserServices implements Serviceable<BankUser>{
     public boolean validateInput(BankUser newBankUser) {
         logger.debug("Validating User: " + newBankUser);
         if(newBankUser == null) return false;
+
         if(newBankUser.getFname() == null || newBankUser.getFname().trim().equals("")) return false;
         if(newBankUser.getLname() == null || newBankUser.getLname().trim().equals("")) return false;
         if(newBankUser.getEmail() == null || newBankUser.getEmail().trim().equals("")) return false;
@@ -95,7 +96,7 @@ public class UserServices implements Serviceable<BankUser>{
             throw new InvalidRequestException("Either username or password is an invalid entry. Please try logging in again");
         }
 
-        BankUser authenticatedBankUser = UserDao.authenticateTrainer(email, password);
+        BankUser authenticatedBankUser = UserDao.authenticateBankUser(email, password);
 
         if (authenticatedBankUser == null){
             throw new AuthenticationException("Unauthenticated user, information provided was not consistent with our database.");
