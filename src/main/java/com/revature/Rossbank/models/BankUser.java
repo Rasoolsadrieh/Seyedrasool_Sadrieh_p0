@@ -120,7 +120,7 @@ public class BankUser {
 
     @Override // What this is?? Annotation - basically metadata
     public String toString() {
-        return "Trainer{" +
+        return "user {" +
                 "fname='" + fname + '\'' +
                 ", lname='" + lname + '\'' +
                 ", email='" + email + '\'' +
