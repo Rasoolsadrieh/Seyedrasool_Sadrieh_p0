@@ -5,12 +5,12 @@ package com.revature.Rossbank.util;
 /*
     Singleton Design Pattern
     - Creational Pattern
-    - Restricts that only a signle instance of this class can be made within the application
-    - Constructor cannot be invoked outside of this class
+    - Restricts that only a single instance of this class can be made within the application
+    - Constructor cannot be invoked outside this class
     - Eager or Lazy singleton
 
     Factory Design Pattern
-    - Creational PAttern
+    - Creational PPattern
     - used to abstract away the creation/instantiation of the class
 
  */

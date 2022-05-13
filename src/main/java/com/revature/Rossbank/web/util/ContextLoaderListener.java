@@ -18,7 +18,7 @@ public class ContextLoaderListener implements ServletContextListener {
         // Make our single ObjectMapper instance
         ObjectMapper mapper = new ObjectMapper();
 
-        // Instantiate all Daos first
+        // Instantiate all DAOS first
       UserDao userDao = new UserDao();
 
 
