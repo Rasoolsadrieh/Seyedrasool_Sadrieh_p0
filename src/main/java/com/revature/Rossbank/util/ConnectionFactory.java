@@ -66,6 +66,7 @@ public class ConnectionFactory {
             conn = DriverManager.getConnection(prop.getProperty("url"), prop.getProperty("user"), prop.getProperty("password"));
         } catch (SQLException e) {
             e.printStackTrace();
+            System.out.println("you are connected to the Database!");
         }
 
         return conn;
