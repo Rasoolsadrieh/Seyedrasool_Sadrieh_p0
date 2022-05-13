@@ -12,7 +12,7 @@ public class TestServlet extends HttpServlet {
 
         @Override
         protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-            resp.getWriter().write("<h1>/test works on our Rossbank application!!</h1>");
+            resp.getWriter().write("<h1>Ross Bank Application Passed the Test. 100%</h1>");
         }
 
 }

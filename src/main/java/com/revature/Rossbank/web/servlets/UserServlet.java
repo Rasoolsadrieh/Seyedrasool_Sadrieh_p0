@@ -7,6 +7,7 @@ import com.revature.Rossbank.services.UserServices;
 import com.revature.Rossbank.util.logging.Logger;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +16,7 @@ import java.util.List;
 
 import static com.revature.Rossbank.web.servlets.Authable.checkAuth;
 
-// @WebServlet("/trainers")
+//@WebServlet("/Users")
 public class UserServlet extends HttpServlet implements Authable {
 
     private final UserServices userServices;
@@ -37,7 +38,7 @@ public class UserServlet extends HttpServlet implements Authable {
 
 
         if(req.getParameter("id") != null && req.getParameter("email") != null){
-            resp.getWriter().write("Hey you have the follow id and email " + req.getParameter("id") + " " + req.getParameter("email") );
+            resp.getWriter().write("Hey you have the following id and email " + req.getParameter("id") + " " + req.getParameter("email") );
             return;
         }
 
