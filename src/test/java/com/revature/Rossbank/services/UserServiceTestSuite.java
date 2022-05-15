@@ -47,7 +47,7 @@ public class UserServiceTestSuite {
         BankUser actualBankUser = sut.create(bankUser);
 
         // Assert
-        Assertions.assertEquals("pie", actualBankUser.getId());
+        Assertions.assertEquals(1 , actualBankUser.getId());
         Assertions.assertEquals("pie", actualBankUser.getFname());
         Assertions.assertEquals("pie", actualBankUser.getLname());
         Assertions.assertEquals("pie", actualBankUser.getPassword());
