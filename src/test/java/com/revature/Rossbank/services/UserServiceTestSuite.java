@@ -26,7 +26,7 @@ public class UserServiceTestSuite {
     public void test_validateInput_givenValidUser_returnTrue(){
 
         // Arrange
-        BankUser bankUser = new BankUser(1,"valid", "valid", "valid","valid","valid");
+        BankUser bankUser = new BankUser(default,"valid", "valid", "valid","valid","valid");
 
         // Act
         boolean actualResult = sut.validateInput(bankUser);
