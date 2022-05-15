@@ -1,7 +1,6 @@
 package com.revature.Rossbank.services;
 
 import com.revature.Rossbank.daos.UserDao;
-import com.revature.Rossbank.daos.UserDao;
 import com.revature.Rossbank.models.BankUser;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
