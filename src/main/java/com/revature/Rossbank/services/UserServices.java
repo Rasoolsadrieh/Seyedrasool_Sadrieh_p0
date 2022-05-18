@@ -21,7 +21,7 @@ public class UserServices {
         user[] users = new user[0];
         try {
             users = userDao.findAll();
-            System.out.println("All users have been found here are the results: \n");
+            System.out.println("THESE ARE ALL THE USERS IN OUR SYSTEM:  \n");
             for (int i = 0; i < users.length; i++) {
                 user user = users[i];
                 System.out.println(user.toString());
@@ -62,7 +62,7 @@ public class UserServices {
             throw new RuntimeException();
         }
 
-        System.out.println("User has been registered: " + newUser+ " Login with user now");
+        System.out.println("THE USER HAS BEEN REGISTERED " + newUser+ " LOGIN NOW PLEASE: ");
         return persistedUser;
     }
 
@@ -76,7 +76,7 @@ public class UserServices {
     public user authenticateUser(String email, String password){
 
         if(password == null || password.trim().equals("") || password == null || password.trim().equals("")) {
-            throw new InvalidRequestException("Either username or password is an invalid entry. Please try logging in again");
+            throw new InvalidRequestException("USERNAME AND PASSWORD IS NOT VALID. PLEASE TRY TO LOGIN WITH EMAIL AND PASSWORD");
         }
 
         user authenticatedUser = userDao.authenticateUser(email, password);

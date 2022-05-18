@@ -17,7 +17,7 @@ public class AccountsDao implements Crudable<account>{
     public account create(account newAccount) {
         try (Connection conn = ConnectionFactory.getInstance().getConnection();) {
 
-            String sql = "insert into account values ( ? , ? , ? ,default);"; // incomplete sql statement
+            String sql = "insert into account values (default,?,?,?);"; // incomplete sql statement
 
             PreparedStatement ps = conn.prepareStatement(sql);
 
@@ -48,9 +48,9 @@ public class AccountsDao implements Crudable<account>{
         account[] userAccounts = new account[10];
         int index = 0;
 
-        try (Connection conn = ConnectionFactory.getInstance().getConnection();) { // try with resoruces, because Connection extends the interface Auto-Closeable
+        try (Connection conn = ConnectionFactory.getInstance().getConnection();) { // try with resources, because Connection extends the interface Auto-Closeable
 
-            String sql = "select * from account where email = ?";
+            String sql = "select * from account where email=?";
             PreparedStatement ps = conn.prepareStatement(sql);
 
             ps.setString(1, email); // Wrapper class example
@@ -60,7 +60,7 @@ public class AccountsDao implements Crudable<account>{
             while (rs.next()) { // the last line of the file is null
                 account account1 = new account();
 
-                account1.setAccountID(rs.getInt("account_id")); // this column lable MUST MATCH THE DB
+                account1.setAccountID(rs.getInt("account_id")); // this column label MUST MATCH THE DB
                 account1.setEmail(rs.getString("email"));
                 account1.setAccountName(rs.getString("account_name"));
                 account1.setBalance(rs.getInt("balance"));
@@ -81,7 +81,8 @@ public class AccountsDao implements Crudable<account>{
 
         try (Connection conn = ConnectionFactory.getInstance().getConnection();) {
 
-            String sql = "select * from account where account_id = ?";
+            String sql = "select * from account where account_id=?";
+
 
             PreparedStatement ps = conn.prepareStatement(sql);
 
@@ -93,14 +94,14 @@ public class AccountsDao implements Crudable<account>{
 
                 account account1 = new account();
 
-                account1.setAccountID(rs.getInt("account_ID")); // this column lable MUST MATCH THE DB
+                account1.setAccountID(rs.getInt("account_id")); // this column label MUST MATCH THE DB
                 account1.setEmail(rs.getString("email"));
                 account1.setAccountName(rs.getString("account_name"));
                 account1.setBalance(rs.getInt("balance"));
 
                 return account1;
             } else {
-                System.out.println("User not found");
+                System.out.println("USER CAN NOT BE FOUND.");
                 return null;
             }
 
@@ -124,14 +125,14 @@ public class AccountsDao implements Crudable<account>{
     public void deposit(String amount, String id){
         try (Connection conn = ConnectionFactory.getInstance().getConnection();) {
 
-            String sql = "update account set balance=balance+? where account_ID=?";
+            String sql = "update account set balance=balance+? where account_id=?";
 
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setInt(1, Integer.parseInt(amount));
             ps.setInt(2, Integer.parseInt(id));
             int rs = ps.executeUpdate(); // remember dql, bc selects are the keywords
 
-            System.out.println("Deposit of " + amount + " was successful");
+            System.out.println("TRANSACTION OF  " + amount + " $ IS DONE AND YOUR ACCOUNT IS UPDATED.");
 
 
         } catch (SQLException e) {

@@ -43,7 +43,7 @@ public class AccountServices {
         if(persistedAccount == null){
             throw new RuntimeException();
         }
-        System.out.println("Account has been registered: " + newAccount);
+        System.out.println("THE ACCOUNT HAS BEEN REGISTERED TO OUR SYSTEM:  " + newAccount);
         return true;
     }
     private boolean validateAccountInput(account newAccount) {
@@ -58,7 +58,7 @@ public class AccountServices {
         try {
             account = accountsDao.findById(id);
         }catch (ResourcePersistanceException e){
-            logger.warn("Id was not found");
+            logger.warn("ID WAS NOT FOUND");
         }
         return account;
     }
