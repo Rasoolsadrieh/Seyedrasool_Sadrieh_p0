@@ -60,7 +60,7 @@ public class AccountsDao implements Crudable<account>{
             while (rs.next()) { // the last line of the file is null
                 account account1 = new account();
 
-                account1.setAccountID(rs.getInt("account_ID")); // this column lable MUST MATCH THE DB
+                account1.setAccountID(rs.getInt("account_id")); // this column lable MUST MATCH THE DB
                 account1.setEmail(rs.getString("email"));
                 account1.setAccountName(rs.getString("account_name"));
                 account1.setBalance(rs.getInt("balance"));
@@ -81,7 +81,7 @@ public class AccountsDao implements Crudable<account>{
 
         try (Connection conn = ConnectionFactory.getInstance().getConnection();) {
 
-            String sql = "select * from account where account_ID = ?";
+            String sql = "select * from account where account_id = ?";
 
             PreparedStatement ps = conn.prepareStatement(sql);
 

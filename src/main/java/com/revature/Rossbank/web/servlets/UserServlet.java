@@ -55,11 +55,11 @@ public class UserServlet extends HttpServlet {
 
        // if(!checkAuth(req, resp)) return;
         // TODO: Let's create a Bank User
-        resp.getWriter().write("1");
+        resp.getWriter().write("");
         user newUser = mapper.readValue(req.getInputStream(), user.class); // from JSON to Java Object (user)
-        resp.getWriter().write("2");
+        resp.getWriter().write("");
         user persistedUser = userServices.registerUser(newUser);
-        resp.getWriter().write("3");
+        resp.getWriter().write("");
 
         String payload = mapper.writeValueAsString(persistedUser); // Mapping from Java Object (user) to JSON
 
