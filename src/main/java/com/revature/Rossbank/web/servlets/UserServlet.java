@@ -53,8 +53,8 @@ public class UserServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-       // if(!checkAuth(req, resp)) return;
-        // TODO: Let's create a Bank User
+
+        // Making a new User
         resp.getWriter().write("");
         user newUser = mapper.readValue(req.getInputStream(), user.class); // from JSON to Java Object (user)
         resp.getWriter().write("");
@@ -63,7 +63,7 @@ public class UserServlet extends HttpServlet {
 
         String payload = mapper.writeValueAsString(persistedUser); // Mapping from Java Object (user) to JSON
 
-        resp.getWriter().write("Persisted the provided Bank User as show below \n");
+        resp.getWriter().write("NEW USER IS REGISTERED IN OUR SYSTEM. THE INFORMATION IS: \n");
         resp.getWriter().write(payload);
         resp.setStatus(201);
     }
@@ -71,7 +71,7 @@ public class UserServlet extends HttpServlet {
     protected boolean checkAuth (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession httpSession = req.getSession();
         if (httpSession.getAttribute("authUser") == null){
-            resp.getWriter().write("Unauthorized request - not logged in ");
+            resp.getWriter().write("UNAUTHORIZED REQUEST. YOU ARE NOT LOGGED IN. PLEASE LOG IN FIRST. ");
             resp.setStatus(401);
             return false;
         }

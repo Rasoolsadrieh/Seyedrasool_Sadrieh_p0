@@ -66,14 +66,14 @@ public class AccountServlet extends HttpServlet {
             resp.setStatus(201);
             return;
         }
-        resp.getWriter().write("Invalid value or id");
+        resp.getWriter().write("INVALID VALUE OR ID .");
 
 
     }
     protected boolean checkAuth (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession httpSession = req.getSession();
         if (httpSession.getAttribute("authUser") == null){
-            resp.getWriter().write("Unauthorized request - not logged in ");
+            resp.getWriter().write("THIS REQUEST CAN NOT BE COMPLETED - YOU ARE NOT LOGGED IN. PLEASE TRY AGAIN ");
             resp.setStatus(401);
             return true;
         }

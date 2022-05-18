@@ -35,7 +35,7 @@ public class AuthServlet extends HttpServlet {
             HttpSession httpSession = req.getSession(true);
             httpSession.setAttribute("authUser", authUser);
 
-            resp.getWriter().write("You have successfully logged in!");
+            resp.getWriter().write("YOU HAVE SUCCESSFULLY LOGGED IN. THANKS FOR RETURNING TO US! ");
         } catch (AuthenticationException | InvalidRequestException e){
             resp.setStatus(404);
             resp.getWriter().write(e.getMessage());
