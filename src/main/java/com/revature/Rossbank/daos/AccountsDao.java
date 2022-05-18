@@ -10,7 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import static com.revature.Rossbank.MainDriver.*;
-
 public class AccountsDao implements Crudable<account>{
 
 
@@ -138,43 +137,9 @@ public class AccountsDao implements Crudable<account>{
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
-            //History RECORD
-            String sql = "insert into history values (default,?,'Deposit',?)";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, Integer.parseInt(id));
-            ps.setInt(2, Integer.parseInt(amount));
-            int rs = ps.executeUpdate(); // remember dql, bc selects are the keywords
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+
 
 
     }
-    public void withdraw(String amount, String id){
-        try (Connection conn = ConnectionFactory.getInstance().getConnection();) {
 
-            String sql = "update account set balance=balance-? where account_ID=?";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, Integer.parseInt(amount));
-            ps.setInt(2, Integer.parseInt(id));
-            int rs = ps.executeUpdate(); // remember dql, bc selects are the keywords
-
-            System.out.println("Withdraw of " + amount + " was successful");
-
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        try (Connection conn = ConnectionFactory.getInstance().getConnection()) {
-            //History RECORD
-            String sql = "insert into history values (default,?,'Withdrawal',?)";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, Integer.parseInt(id));
-            ps.setInt(2, Integer.parseInt(amount));
-            int rs = ps.executeUpdate(); // remember dql, bc selects are the keywords
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
 }

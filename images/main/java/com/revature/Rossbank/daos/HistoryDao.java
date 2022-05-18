@@ -1,6 +1,5 @@
 package com.revature.Rossbank.daos;
 
-import com.revature.Rossbank.models.history;
 import com.revature.Rossbank.util.ConnectionFactory;
 
 import java.io.IOException;

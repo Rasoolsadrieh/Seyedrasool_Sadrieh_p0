@@ -53,7 +53,7 @@ public class UserServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        if(!checkAuth(req, resp)) return;
+       // if(!checkAuth(req, resp)) return;
         // TODO: Let's create a Bank User
         resp.getWriter().write("1");
         user newUser = mapper.readValue(req.getInputStream(), user.class); // from JSON to Java Object (user)

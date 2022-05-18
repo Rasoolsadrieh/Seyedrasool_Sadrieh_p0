@@ -29,10 +29,6 @@ public class AccountServices {
     public void deposit(String value, String id){
         accountsDao.deposit(value, id);
     }
-    public void withdraw(String value, String id){
-
-        accountsDao.withdraw(value, id);
-    }
 
     public boolean registerAccount(account newAccount){
         if(!validateAccountInput(newAccount)){ // checking if false
