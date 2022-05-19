@@ -7,7 +7,7 @@ Bank for all users from all side of the World!
 
 - [ ] As a new user, I should be able to register myself on the system, so that I can begin using the RossBank project application.
 - [ ] As a user, I should be able to log in once I've registered so that I can access the information in the database about all the known RossBank.
-- [ ] As a user I should be able to Deposit and withdraw money from the Account.
+- [ ] As a user I should be able to Deposit and Withdraw money from the Account.
 
 ## Tech Stack
 
