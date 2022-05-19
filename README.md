@@ -2,7 +2,7 @@
 
 ## Description
 
-Bank for all users from all side of the World!
+Bank for all users from all sides of the World!
 ## User Story
 
 - [ ] As a new user, I should be able to register myself on the system, so that I can begin using the RossBank project application.
@@ -17,4 +17,5 @@ Bank for all users from all side of the World!
 - Local PostgresSQL (eventually hosted on Azure)
 - Git SCM (GitHub)
 - HTML/CSS/JS
+- Postman
 # my-p0-project
