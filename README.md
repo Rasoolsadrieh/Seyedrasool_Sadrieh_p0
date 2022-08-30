@@ -18,4 +18,4 @@ Bank for all users from all sides of the World!
 - Git SCM (GitHub)
 - HTML/CSS/JS
 - Postman
-# my-p0-project
+
